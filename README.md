@@ -3,8 +3,7 @@ TSP
 
 Solve the traveling salesman problem for extremely large graphs directly.
 
-It does this via clustering nodes until the problem becomes trivial,
-then iteratively de-clustering to add the de-clustered nodes to the path:
+It does this via clustering nodes until the problem becomes trivial, then iteratively de-clustering to add the de-clustered nodes to the path:
 
 1. Bifurcate the nodes: pair up nodes to nearest neighbors to form new nodes, until all nodes are paired or single.
 2. Form new nodes from the clusters.
@@ -18,9 +17,10 @@ Input is a CSV of nodes with X/Y coordinates, with columns id,x,y.
 
 To call, run:
 
+Nodes = BuildGraph(CSVFile);
 Path = SolveTSP(Nodes,Edges);
 
-Edges can be empty.
+Edges can be empty, ie Path = SolveTSP(Nodes,[]);
 
 Code was tested on a list of 150,000 nodes and took approximately 1 hour to achieve a fairly good solution.
 
